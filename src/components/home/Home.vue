@@ -30,7 +30,7 @@
                     </select>
                 </div>
 
-            <button type="submit" class="btn btn-primary">SIMULAR</button>
+            <button type="submit" class="btn btn-primary" >SIMULAR</button>
     
         </form>
     </div>
@@ -57,7 +57,7 @@ export default {
             this.$http.post('http://api.mathjs.org/v4/', { "expr": `${this.dados.mensal} * (((1 + 0.00517) ^ ${this.dados.tempo} - 1) / 0.00517)`, 'precision': 5 })
             
                       .then(response => {
-                
+                          
                         console.log(response.body.result)
                         console.log(this.dados.nome)
                         console.log(this.dados.mensal)
@@ -70,6 +70,7 @@ export default {
                         // window.open('/resultado', '_self'); 
          
         },
+
     },
    
 }
