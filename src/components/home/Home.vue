@@ -10,8 +10,11 @@
                                 <label class="col-4">Nome</label>
                                 <input type="text" class="form-control col-8" v-model="dados.nome">
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group input-group  row">
                                 <label class="col-4">Mensalidade</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">R$</div>
+                                </div>
                                 <input type="number" class="form-control col-8" v-model="dados.mensal">
                             </div>
                     
@@ -76,7 +79,7 @@ export default {
 
         simulador(){
            
-                this.$http.post('http://api.mathjs.org/v4/', { "expr": `${this.dados.mensal} * (((1 + 0.00517) ^ ${this.dados.tempo} - 1) / 0.00517)`, 'precision': 7 })
+                this.$http.post('http://api.mathjs.org/v4/', { "expr": `${this.dados.mensal} * (((1 + 0.00517) ^ ${this.dados.tempo} - 1) / 0.00517)`, 'precision': 5 })
                 
                           .then(response => {
                               
@@ -115,13 +118,16 @@ export default {
          color: #fff;}
 
     .btn:disabled {
-        opacity: 0.15;
-    }
+        opacity: 0.15;}
 
     button:hover { 
          background: #ff3796; 
          border-color:#ff3796; 
          color: #fff;}
+
+    .input-group-text{
+         border-radius: 11px 0 0 11px !important;
+         margin-left: 8px;}     
 
     .card { 
          margin-top: 10vh; 
@@ -132,4 +138,12 @@ export default {
          border-radius: 11px; 
          padding: 10px;}
 
+    @media screen and (max-width: 600px) {
+        .input-group-text{
+            height: 38px;}
+
+        h2{ padding: 5px 0;
+            font-size:25px} 
+    }     
+    
 </style>

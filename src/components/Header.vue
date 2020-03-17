@@ -15,5 +15,5 @@
       padding: 10px 0;}
 
   img {
-    width:150px; }
+    width:150px;}
 </style>
